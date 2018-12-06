@@ -1,5 +1,3 @@
-
-
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -8,29 +6,45 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2018/11/06 14:34:35 by cbreisch         ###   ########.fr        #
+#    Updated: 2018/12/06 18:29:14 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-SRCS 		:= $(shell du -a . | awk '{print $$2}' | grep '\.c')
-NAME		= libft.a #Output
-OBJS		= $(SRCS:.c=.o) #.c > .o
-CC			= cc #Compiler
-LINKER		= ar #Linker
+
+DEBUG		= FALSE
+
+SRCS 		:= $(shell du -a | awk '{print $$2}' | grep '\.c')
+NAME		= libft.a
+OBJS		= $(SRCS:.c=.o)
+INCLUDES	= includes
+
+CC			= cc
+LINKER		= ar -rcs
 INDEXER		= ranlib
-INCLUDES	= includes #Include directory
-CFLAGS		= -I$(INCLUDES) -W -Wall -Wextra -Werror #Compilation's flags
-RM			= rm -f #rm with FORCE
+CFLAGS		= -I$(INCLUDES) -W -Wall -Wextra -Werror
+RM			= rm -rf
 
-all	: $(NAME) #Compile then clean
+ifeq ($(DEBUG),TRUE)
+		CFLAGS += -g
+		NAME :=$(NAME).debug
+endif
 
-$(NAME)	:	$(OBJS) #Compile
+all	: $(NAME)
+
+$(NAME)	:	$(OBJS)
 		$(LINKER) -rcs $(NAME) $(OBJS)
 		$(INDEXER) $(NAME)
 
-clean	: #Delete .o files
+clean	:
 		$(RM) $(OBJS)
 
-fclean	:	clean #Delete executable
+ifeq ($(DEBUG),TRUE)
+fclean	:	clean
+		$(RM) $(NAME) $(NAME).dSYM
+else
+fclean	:	clean
 		$(RM) $(NAME)
+endif
 
-re		:	fclean all #Delete ex and recompile%%
+re		:	fclean all
+
+.PHONY	:	clean

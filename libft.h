@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/11/16 21:47:15 by cbreisch         ###   ########.fr       */
+/*   Updated: 2018/12/06 18:21:05 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+
+# define BUFF_SIZE 64
+# define MAX_FD 32
 
 typedef enum	e_bool
 {
@@ -78,6 +82,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
+char			*ft_strjoin_free(char *s1, char *s2);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
@@ -113,5 +118,7 @@ t_bool			ft_str_is_numeric(const char *s);
 t_bool			ft_str_is_printable(const char *s);
 t_bool			ft_str_is_uppercase(const char *s);
 size_t			ft_strnlen(const char *str, size_t max);
+
+int				get_next_line(const int fd, char **line);
 
 #endif
