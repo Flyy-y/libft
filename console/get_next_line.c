@@ -6,11 +6,11 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:02:09 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:29:47 by cbreisch         ###   ########.fr       */
+/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 static int	ft_new_line(char **s, char **line, int fd, int ret)
 {

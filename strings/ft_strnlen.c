@@ -6,11 +6,11 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 15:50:03 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:29:47 by cbreisch         ###   ########.fr       */
+/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 size_t	ft_strnlen(const char *str, size_t max)
 {

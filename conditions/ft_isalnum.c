@@ -6,11 +6,11 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:21:40 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:29:47 by cbreisch         ###   ########.fr       */
+/*   Updated: 2018/12/06 18:36:14 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

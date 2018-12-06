@@ -6,11 +6,11 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 18:07:59 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:29:47 by cbreisch         ###   ########.fr       */
+/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 void	ft_putnbr_fd(long n, int fd)
 {
