@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:02:09 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/01/15 16:25:04 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_new_line(char **s, char **line, int fd, int ret)
 
 int			get_next_line(const int fd, char **line)
 {
-	static char	*s[OPEN_MAX];
+	static char	*s[MAX_FD];
 	char		buf[BUFF_SIZE + 1];
 	char		*tmp;
 	int			ret;

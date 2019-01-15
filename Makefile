@@ -6,45 +6,65 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2018/12/06 18:29:14 by cbreisch         ###   ########.fr        #
+#    Updated: 2019/01/15 16:31:22 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-DEBUG		= FALSE
+TARGET		:= libft
 
-SRCS 		:= $(shell du -a | awk '{print $$2}' | grep '\.c')
-NAME		= libft.a
-OBJS		= $(SRCS:.c=.o)
-INCLUDES	= includes
+SRCDIR		:= srcs
+INCDIR		:= includes
+BUILDDIR	:= obj
+TARGETDIR	:= bin
+SRCEXT		:= c
+OBJEXT		:= o
+DEBUG		:= FALSE
+LIBRARY		:= TRUE
 
-CC			= cc
-LINKER		= ar -rcs
-INDEXER		= ranlib
-CFLAGS		= -I$(INCLUDES) -W -Wall -Wextra -Werror
-RM			= rm -rf
+#Flags, Libraries and Includes
+CC			:= cc
+CFLAGS		:= -Wall -Wextra
+LIB			:= 
+INC			:= -I$(INCDIR)
+LINKER		:= ar
+INDEXER		:= ranlib
+RM			:= rm
+MKDIR		:= mkdir
 
-ifeq ($(DEBUG),TRUE)
-		CFLAGS += -g
-		NAME :=$(NAME).debug
+SOURCES     := $(shell du -a $(SRCDIR) | awk '{print $$2}' | grep '\.$(SRCEXT)')
+OBJECTS     := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.$(OBJEXT)))
+
+ifeq ($(DEBUG), TRUE)
+	CFLAGS += -g
 endif
 
-all	: $(NAME)
+all: directories $(TARGET) #Create dirs and build target
 
-$(NAME)	:	$(OBJS)
-		$(LINKER) -rcs $(NAME) $(OBJS)
-		$(INDEXER) $(NAME)
+re: fclean all #Fullclean + build
 
-clean	:
-		$(RM) $(OBJS)
+directories: #Create directories
+	@$(MKDIR) -p $(TARGETDIR)
+	@$(MKDIR) -p $(BUILDDIR)
 
-ifeq ($(DEBUG),TRUE)
-fclean	:	clean
-		$(RM) $(NAME) $(NAME).dSYM
+clean: #Delete build directory
+	@$(RM) -rf $(BUILDDIR)
+
+fclean: clean #Delete build and target directories
+	@$(RM) -rf $(TARGETDIR) $(TARGET).dSYM
+
+ifeq ($(LIBRARY), FALSE)
+$(TARGET): $(OBJECTS) #Build objects, then target
+	$(CC) -o $(TARGETDIR)/$(TARGET) $^ $(LIB)
 else
-fclean	:	clean
-		$(RM) $(NAME)
+$(TARGET): $(OBJECTS) #Build objects, then link target
+	$(LINKER) -rcs $(TARGETDIR)/$(TARGET) $^
+	$(INDEXER) $(TARGETDIR)/$(TARGET)
 endif
 
-re		:	fclean all
+#Compile objects
+$(BUILDDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT)
+	@$(MKDIR) -p $(dir $@)
+	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
-.PHONY	:	clean
+#Non-File Targets
+.PHONY: all re clean fclean directories
