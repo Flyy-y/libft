@@ -6,7 +6,7 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2019/01/15 19:34:45 by cbreisch         ###   ########.fr        #
+#    Updated: 2019/01/15 19:51:18 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,14 @@ LIBRARY		:= TRUE
 SRCDIR		:= srcs
 INCDIR		:= includes
 BUILDDIR	:= build
-TARGETDIR	:= bin
+TARGETDIR	:= bins
 SRCEXT		:= c
 OBJEXT		:= o
 
 CC			:= cc
 CFLAGS		:= -Wall -Wextra
 MAKEDEP		:=
+LIB			:= libft/bin/libft.a
 INC			:= -I$(INCDIR)
 LINKER		:= ar
 INDEXER		:= ranlib
@@ -66,6 +67,7 @@ clean: #Delete build directory
 
 fclean: clean #Delete build and target directories
 	@$(RM) -rf $(TARGETDIR) $(TARGET).dSYM
+	@$(foreach dep,$(MAKEDEP),make -C $(dep) fclean;)
 
 norm:
 	@norminette $(SOURCES)
