@@ -6,7 +6,7 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2019/01/15 16:51:33 by cbreisch         ###   ########.fr        #
+#    Updated: 2019/01/15 16:54:06 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ fclean: clean #Delete build and target directories
 	@$(RM) -rf $(TARGETDIR) $(TARGET).dSYM
 
 norme:
-	@echo $(shell norminette $(SOURCES) | grep -E '^(Error|Warning)')
+	@norminette $(SOURCES)
 
 ifeq ($(LIBRARY), FALSE)
 $(TARGET): $(OBJECTS) #Build objects, then target
