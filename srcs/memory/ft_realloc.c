@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 16:36:18 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/01/15 16:54:36 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/01/15 16:55:19 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_realloc(void *p, size_t old_size, size_t new_size)
 {
-	void*	new;
+	void	*new;
 
 	new = NULL;
 	if (new_size == 0)
