@@ -6,7 +6,7 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2019/01/15 19:26:55 by cbreisch         ###   ########.fr        #
+#    Updated: 2019/01/15 19:34:45 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,9 +134,12 @@ $(BUILDDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT)
 		rm -f $@.log; \
 		exit $$RESULT
 
-srcstoroot:
-	@(read -p "Are you sure ?!? [y/N]: " sure && case "$$sure" in [yY]) true;; *) false;; esac)
-	
+nicemoulinette:
+	@(read -p "Are you sure ? [y/N]: " sure && case "$$sure" in [yY]) true;; *) false;; esac)
+	@mv $(SOURCES) .
+	@mv $(shell du -a $(INCDIR) | awk '{print $$2}' | grep '\.h') .
+	@$(RM) -rf $(SRCDIR)
+	@$(RM) -rf $(INCDIR)
 
 #Non-File Targets
-.PHONY: all re clean fclean directories norm normcheck makedep
+.PHONY: all re clean fclean directories norm normcheck makedep nicemoulinette
