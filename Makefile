@@ -6,7 +6,7 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2019/01/15 16:57:22 by cbreisch         ###   ########.fr        #
+#    Updated: 2019/01/15 16:58:17 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ norme:
 	@norminette $(SOURCES)
 
 normcheck:
-	@echo "$(shell norminette $(SOURCES) | grep -E '^(Error|Warning)')"
+	@echo "$(shell norminette $(SOURCES) | grep -E '^(Error|Warning)')" Norme check OK
 
 ifeq ($(LIBRARY), FALSE)
 $(TARGET): $(OBJECTS) #Build objects, then target
