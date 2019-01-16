@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/01/16 22:59:20 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/01/17 00:15:46 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ char			*ft_strrev(char *str);
 
 void			**ft_memalloc_2d(size_t len_x, size_t len_y,
 	size_t size_x, size_t size_y);
+void			ft_memdel_2d(void ***p)
 void			ft_lstadd_end(t_list **alst, t_list *new);
 long			ft_pow(long n, long pow);
 char			*ft_strcapitalize(char *s);
