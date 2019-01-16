@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:21:05 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/01/16 22:21:48 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ t_bool			ft_str_is_numeric(const char *s);
 t_bool			ft_str_is_printable(const char *s);
 t_bool			ft_str_is_uppercase(const char *s);
 size_t			ft_strnlen(const char *str, size_t max);
+void			*ft_realloc(void *p, size_t old_size, size_t new_size);
 
 int				get_next_line(const int fd, char **line);
 
