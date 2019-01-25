@@ -6,7 +6,7 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2019/01/15 19:51:18 by cbreisch         ###   ########.fr        #
+#    Updated: 2019/01/25 18:47:04 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,20 +35,22 @@ MKDIR		:= mkdir
 SOURCES     := $(shell du -a $(SRCDIR) | awk '{print $$2}' | grep '\.$(SRCEXT)')
 OBJECTS     := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.$(OBJEXT)))
 
-COM_COLOR	= \033[0;94m
-OBJ_COLOR	= \033[0;90m
-TAR_COLOR	= \033[0;92m
-OK_COLOR	= \033[0;32m
-ERROR_COLOR	= \033[0;31m
-WARN_COLOR	= \033[0;33m
-NO_COLOR	= \033[m
+CUR_COLOR	:= \033[0;93m
+COM_COLOR	:= \033[0;94m
+OBJ_COLOR	:= \033[0;90m
+TAR_COLOR	:= \033[0;92m
+OK_COLOR	:= \033[0;32m
+ERROR_COLOR	:= \033[0;31m
+WARN_COLOR	:= \033[0;33m
+NO_COLOR	:= \033[m
 
-OK_STRING	= "[OK]"
-ERROR_STRING= "[ERROR]"
-WARN_STRING	= "[WARNING]"
-COM_STRING	= "Compiling"
-LIN_STRING	= "Linking"
-IND_STRING	= "Indexing"
+OK_STRING	:= "[OK]"
+ERROR_STRING:= "[ERROR]"
+WARN_STRING	:= "[WARNING]"
+COM_STRING	:= "Compiling"
+LIN_STRING	:= "Linking"
+IND_STRING	:= "Indexing"
+DEL_STRING	:= "Deleted"
 
 ifeq ($(DEBUG), TRUE)
 	CFLAGS += -g
@@ -63,10 +65,12 @@ directories: #Create directories
 	@$(MKDIR) -p $(BUILDDIR)
 
 clean: #Delete build directory
-	@$(RM) -rf $(BUILDDIR)
+	@$(RM) -rf $(OBJECTS) $(BUILDDIR) 2> /dev/null
+	@printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(DEL_STRING)$(TAR_COLOR) build files" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n";
 
 fclean: clean #Delete build and target directories
-	@$(RM) -rf $(TARGETDIR) $(TARGET).dSYM
+	@$(RM) -rf $(TARGETDIR)/$(TARGET) $(TARGETDIR)/$(TARGET).dSYM $(TARGETDIR)
+	@printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(DEL_STRING)$(TAR_COLOR) binary files" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n";
 	@$(foreach dep,$(MAKEDEP),make -C $(dep) fclean;)
 
 norm:
@@ -80,14 +84,14 @@ makedep:
 
 ifeq ($(LIBRARY), FALSE)
 $(TARGET): $(OBJECTS) #Build objects, then target
-	@$(CC) -o $(TARGETDIR)/$(TARGET) $^ $(LIB) 2> $@.log; \
+	@$(CC) $(CFLAGS) $(INC) -o $(TARGETDIR)/$(TARGET) $^ $(LIB) 2> $@.log; \
 		RESULT=$$?; \
 		if [ $$RESULT -ne 0 ]; then \
-			printf "%-60b%b" "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
 		elif [ -s $@.log ]; then \
-			printf "%-60b%b" "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
 		else  \
-			printf "%-60b%b" "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
 		fi; \
 		cat $@.log; \
 		rm -f $@.log; \
@@ -97,11 +101,11 @@ $(TARGET): $(OBJECTS) #Build objects, then link target
 	@$(LINKER) -rcs $(TARGETDIR)/$(TARGET) $^ 2> $@.log; \
 		RESULT=$$?; \
 		if [ $$RESULT -ne 0 ]; then \
-			printf "%-60b%b" "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
 		elif [ -s $@.log ]; then \
-			printf "%-60b%b" "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
 		else  \
-			printf "%-60b%b" "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(LIN_STRING)$(TAR_COLOR) $@" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
 		fi; \
 		cat $@.log; \
 		rm -f $@.log; \
@@ -109,11 +113,11 @@ $(TARGET): $(OBJECTS) #Build objects, then link target
 	@$(INDEXER) $(TARGETDIR)/$(TARGET) 2> $@.log; \
 		RESULT=$$?; \
 		if [ $$RESULT -ne 0 ]; then \
-			printf "%-60b%b" "$(COM_COLOR)$(IND_STRING)$(TAR_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(IND_STRING)$(TAR_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
 		elif [ -s $@.log ]; then \
-			printf "%-60b%b" "$(COM_COLOR)$(IND_STRING)$(TAR_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(IND_STRING)$(TAR_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
 		else  \
-			printf "%-60b%b" "$(COM_COLOR)$(IND_STRING)$(TAR_COLOR) $@" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(IND_STRING)$(TAR_COLOR) $@" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
 		fi; \
 		cat $@.log; \
 		rm -f $@.log; \
@@ -126,11 +130,11 @@ $(BUILDDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT)
 	@$(CC) $(CFLAGS) $(INC) -c -o $@ $< 2> $@.log; \
 		RESULT=$$?; \
 		if [ $$RESULT -ne 0 ]; then \
-			printf "%-60b%b" "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
 		elif [ -s $@.log ]; then \
-			printf "%-60b%b" "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
 		else  \
-			printf "%-60b%b" "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $(@F)" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
+			printf "%b%-50b%b" "$(CUR_COLOR)$(TARGET) > " "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $(@F)" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
 		fi; \
 		cat $@.log; \
 		rm -f $@.log; \
