@@ -6,13 +6,11 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2019/01/25 18:47:04 by cbreisch         ###   ########.fr        #
+#    Updated: 2019/02/01 16:13:20 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET		:= libft.a
-
-DEBUG		:= FALSE
 LIBRARY		:= TRUE
 
 SRCDIR		:= srcs
