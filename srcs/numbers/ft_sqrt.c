@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel_2d.c                                     :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/16 23:55:17 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/01 16:34:20 by cbreisch         ###   ########.fr       */
+/*   Created: 2019/02/01 17:18:20 by cbreisch          #+#    #+#             */
+/*   Updated: 2019/02/01 17:25:11 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel_2d(void **p, size_t n)
+size_t	ft_sqrt_up(size_t n)
 {
 	size_t i;
 
-	i = -1;
-	while (++i < n)
-		free(p[n]);
-	free(p);
+	i = 0;
+	while (i * i < n)
+		i++;
+	return (i);
 }
