@@ -6,7 +6,7 @@
 #    By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 14:18:33 by cbreisch          #+#    #+#              #
-#    Updated: 2019/02/01 16:13:20 by cbreisch         ###   ########.fr        #
+#    Updated: 2019/02/04 17:23:35 by cbreisch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCEXT		:= c
 OBJEXT		:= o
 
 CC			:= cc
-CFLAGS		:= -Wall -Wextra
+CFLAGS		:= -Wall -Wextra -g
 MAKEDEP		:=
 LIB			:= libft/bin/libft.a
 INC			:= -I$(INCDIR)
@@ -49,10 +49,6 @@ COM_STRING	:= "Compiling"
 LIN_STRING	:= "Linking"
 IND_STRING	:= "Indexing"
 DEL_STRING	:= "Deleted"
-
-ifeq ($(DEBUG), TRUE)
-	CFLAGS += -g
-endif
 
 all: makedep directories $(TARGET) #Create dirs and build target
 
