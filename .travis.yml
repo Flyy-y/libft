@@ -1,5 +1,9 @@
 language: c
 
+install: 
+  - git clone https://github.com/Flyy-y/util.git $HOME/util
+  - $HOME/util/bin/gen_makefile config.json > Makefile
+
 script: make
 
 os:
@@ -9,3 +13,6 @@ os:
 compiler:
   - clang
   - gcc
+
+git:
+  dept: false
