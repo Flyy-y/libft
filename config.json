@@ -1,4 +1,6 @@
 {
+	"name": "libft",
 	"target": "libft.a",
-	"library": true
+	"library": true,
+	"tardir": "bin"
 }
