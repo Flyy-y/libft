@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hasmap_getitem.c                                :+:      :+:    :+:   */
+/*   ft_hashmap_clear.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/04 15:25:02 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/04 17:25:31 by cbreisch         ###   ########.fr       */
+/*   Created: 2019/02/04 18:52:59 by cbreisch          #+#    #+#             */
+/*   Updated: 2019/02/06 20:29:23 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "hashmap.h"
 
-t_hitem	ft_hmap_getitem(t_hmap *m, t_hkey *key)
+void	ft_hashmap_clear(t_hmap *map)
 {
-
+	(void)map;
 }

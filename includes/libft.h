@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/04 17:25:24 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/04 19:24:13 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 # define BUFF_SIZE 64
 # define MAX_FD 32
-# define HMAP_FF 16
+# define HMAP_FF 16UL
 
 typedef enum	e_bool
 {
@@ -34,30 +34,6 @@ typedef struct	s_list
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
-
-typedef union	u_hkey
-{
-	char	*str;
-	long	id;
-}				t_hkey;
-
-typedef	struct	s_hitem
-{
-	t_hkey			key;
-	void			*value;
-	unsigned long	hash;
-	size_t			val_size;
-	struct s_hitem	*next;
-}				t_hitem;
-
-typedef	struct	s_hmap
-{
-	int				length;
-	unsigned long	(*hash_func)(const void *str, size_t len);
-	t_bool			use_id_as_key;
-	t_hitem			*fast_forward;
-	t_hitem			*items;
-}				t_hmap;
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -151,8 +127,5 @@ void			*ft_realloc(void *p, size_t old_size, size_t new_size);
 size_t  		ft_sqrt_up(size_t n);
 
 int				get_next_line(const int fd, char **line);
-
-t_hitem			*ft_hmap_additem(t_hmap *m, char *key, void *val, size_t val_size);
-t_hmap			*ft_hmap_init(t_bool id_as_key);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/04 17:25:39 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/04 19:24:37 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "hashmap.h"
 
 static unsigned long	sdbm(const void *str, size_t len)
 {
@@ -29,7 +29,7 @@ static unsigned long	sdbm(const void *str, size_t len)
 	return (hash);
 }
 
-t_hmap	*ft_hmap_init(t_bool id_as_key)
+t_hmap					*ft_hmap_init(t_bool id_as_key)
 {
 	t_hmap	*m;
 
