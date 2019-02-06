@@ -1,6 +1,10 @@
 language: c
 
-install: make
+script: make
+
+os:
+  - linux
+  - osx
 
 compiler:
   - clang
