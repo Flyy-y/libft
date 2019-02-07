@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/04 19:25:57 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/07 23:54:35 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef	struct	s_hitem
 	unsigned long	hash;
 	size_t			val_size;
 	struct s_hitem	*next;
+	struct s_hitem	*prev;
 }				t_hitem;
 
 typedef	struct	s_hmap
@@ -44,5 +45,6 @@ t_hitem			*ft_hmap_additem(t_hmap *m, char *key, void *val,
 					size_t val_size);
 t_hmap			*ft_hmap_init(t_bool id_as_key);
 t_hitem			*ft_hmap_getitem(t_hmap *m, t_hkey k);
+void			ft_hmap_delitem(t_hmap *m, t_hkey k);
 
 #endif

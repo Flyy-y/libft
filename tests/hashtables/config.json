@@ -1,0 +1,10 @@
+{
+	"name": "hmap_test",
+	"target": "hmap_test",
+	"library": false,
+	"tardir": ".",
+	"incdir": "../../includes",
+	"lib": "../../bin/libft.a",
+	"srcdir": ".",
+	"cflags": "-Wall -Wextra -g3"
+}
