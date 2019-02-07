@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/07 23:54:35 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 00:43:48 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_hitem			*ft_hmap_additem(t_hmap *m, char *key, void *val,
 					size_t val_size);
 t_hmap			*ft_hmap_init(t_bool id_as_key);
 t_hitem			*ft_hmap_getitem(t_hmap *m, t_hkey k);
-void			ft_hmap_delitem(t_hmap *m, t_hkey k);
+void			ft_hmap_delitem(t_hmap *m, t_hitem *item);
+void			ft_hashmap_clear(t_hmap *map);
 
 #endif

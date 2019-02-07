@@ -5,11 +5,11 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "tests/a.out",
+			"name": "tests/hmap_test",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/tests/a.out",
-			"args": [],
+			"program": "${workspaceFolder}/tests/hmap/hmap_test",
+			"args": ["10"],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"environment": [],

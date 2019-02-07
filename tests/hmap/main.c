@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 23:41:17 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/07 23:55:47 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 00:44:22 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int	main(int argc, char **argv)
 {
-	t_hkey	k;
 	char	*x = "randomodwopwqdokpwdqkopwdqstring";
 	t_hmap	*id;
 	t_hmap	*ch;
@@ -35,13 +34,7 @@ int	main(int argc, char **argv)
 		ft_hmap_additem(ch, &(x[i]), x, 33);
 		i++;
 	}
-	i = 0;
-	{
-		k.id = i;
-		ft_hmap_delitem(id, k);
-		k.str = &(x[i]);
-		ft_hmap_delitem(ch, k);
-		i++;
-	}
+	ft_hashmap_clear(id);
+	ft_hashmap_clear(ch);
 	return (0);
 }
