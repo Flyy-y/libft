@@ -4,6 +4,7 @@
 	"library": false,
 	"tardir": ".",
 	"incdir": "../../includes",
+	"makedep": "../../",
 	"lib": "../../bin/libft.a",
 	"srcdir": ".",
 	"cflags": "-Wall -Wextra -g3"
