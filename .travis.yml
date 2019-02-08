@@ -10,7 +10,7 @@ script:
   - $HOME/util/bin/gen_makefile config/hmap_test.json > tests/hmap/Makefile
   - cd tests/hmap
   - make
-  - ./hmap_test.out $(( $RANDOM/10 ))
+  - ./hmap_test.out $(( $RANDOM*3 ))
 
 os:
   - linux

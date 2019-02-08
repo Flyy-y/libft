@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 23:41:17 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 01:45:08 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 02:47:33 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(int argc, char **argv)
 {
-	char	*x = "randomodwopwqdokpwdqkopwdqstring";
+	char	*x = "weopkekopekopfekpfwekopfwekopfewokpkfowep";
 	t_hkey	key;
 	t_hmap	*m;
 	t_hmap	*ch;
@@ -31,8 +31,8 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < count)
 	{
-		ft_hmap_additem(m, NULL, x, 33);
-		ft_hmap_additem(ch, &(x[i]), x, 33);
+		ft_hmap_additem(m, NULL, x, 42);
+		ft_hmap_additem(ch, "superkey", x, 42);
 		i++;
 	}
 	key.id = count / 2;
