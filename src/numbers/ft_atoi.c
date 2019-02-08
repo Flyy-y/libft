@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 13:41:31 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 02:30:20 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_atoi(const char *str)
 		++i;
 	if (str[i] == '-')
 		negative = 1;
+	else
+		negative = 0;
 	if (str[i] == '-' || str[i] == '+')
 		++i;
 	while (str[i] && (str[i] >= '0') && (str[i] <= '9'))
