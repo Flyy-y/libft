@@ -5,6 +5,6 @@
 	"tardir": ".",
 	"incdir": "../../includes",
 	"makedep": "../../",
-	"lib": "../../bin/libft_debug.a",
+	"lib": "../../bin/libft.a",
 	"srcdir": "."
 }
