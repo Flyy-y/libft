@@ -6,6 +6,5 @@
 	"incdir": "../../includes",
 	"makedep": "../../",
 	"lib": "../../bin/libft_debug.a",
-	"srcdir": ".",
-	"cflags": "-Wall -Wextra -g3"
+	"srcdir": "."
 }

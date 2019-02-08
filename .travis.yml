@@ -7,10 +7,9 @@ install:
   - make
 
 script:
-  - $HOME/util/bin/gen_makefile config/libft_debug.json > Makefile
   - $HOME/util/bin/gen_makefile config/hmap_test.json > tests/hmap/Makefile
   - cd tests/hmap
-  - make fre
+  - make
   - ./hmap_test.out $(( $RANDOM/2 ))
 
 os:
