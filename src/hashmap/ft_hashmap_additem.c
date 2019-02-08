@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 02:39:34 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 02:40:44 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_bool	regen_ff(t_hmap *m)
 
 	if (m->ff)
 		free(m->ff);
-	if (!(m->ff = ft_memalloc(sizeof(t_hitem*) * (m->length + 1) / HMAP_FF)))
+	if (!(m->ff = ft_memalloc(sizeof(t_hitem*) * ((m->length + 1) / HMAP_FF))))
 		return (FALSE);
 	i = 0;
 	item = m->items;
