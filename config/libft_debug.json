@@ -1,0 +1,7 @@
+{
+	"name": "libft",
+	"target": "libft_debug.a",
+	"library": true,
+	"tardir": "bin",
+	"cflags": "-Wall -Wextra -g3"
+}

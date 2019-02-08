@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 23:41:17 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 00:44:22 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 01:45:08 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int	main(int argc, char **argv)
 {
 	char	*x = "randomodwopwqdokpwdqkopwdqstring";
-	t_hmap	*id;
+	t_hkey	key;
+	t_hmap	*m;
 	t_hmap	*ch;
 	int		count;
 	int		i;
@@ -25,16 +26,23 @@ int	main(int argc, char **argv)
 		exit (1);
 	
 	count = ft_atoi(argv[1]);
-	id = ft_hmap_init(TRUE);
-	ch = ft_hmap_init(FALSE);
+	if (!(m = ft_hmap_init(TRUE)) || !(ch = ft_hmap_init(FALSE)))
+		return (1);
 	i = 0;
 	while (i < count)
 	{
-		ft_hmap_additem(id, NULL, x, 33);
+		ft_hmap_additem(m, NULL, x, 33);
 		ft_hmap_additem(ch, &(x[i]), x, 33);
 		i++;
 	}
-	ft_hashmap_clear(id);
+	key.id = count / 2;
+	ft_hmap_delitem(m, ft_hmap_getitem(m, key));
+	key.id = 0;
+	ft_hmap_delitem(m, ft_hmap_getitem(m, key));
+	key.id = count - 1;
+	ft_hmap_delitem(m, ft_hmap_getitem(m, key));
+
+	ft_hashmap_clear(m);
 	ft_hashmap_clear(ch);
 	return (0);
 }

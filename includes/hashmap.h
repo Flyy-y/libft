@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 00:43:48 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 01:43:37 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef	struct	s_hmap
 	size_t			length;
 	unsigned long	(*hash_func)(const void *str, size_t len);
 	t_bool			use_id_as_key;
-	t_hitem			**fast_forward;
+	t_hitem			**ff;
 	t_hitem			*items;
 }				t_hmap;
 

@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/07 23:00:08 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 01:03:14 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 # define BUFF_SIZE 64
 # define MAX_FD 32
-# define HMAP_FF 16UL
 
 typedef enum	e_bool
 {

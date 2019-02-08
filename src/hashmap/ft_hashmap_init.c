@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/04 19:24:37 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 01:24:41 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_hmap					*ft_hmap_init(t_bool id_as_key)
 		return (NULL);
 	m->length = 0;
 	m->use_id_as_key = id_as_key;
-	m->fast_forward = NULL;
+	m->ff = NULL;
 	m->hash_func = &sdbm;
 	return (m);
 }

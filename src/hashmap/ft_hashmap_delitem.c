@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:20:29 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 00:39:45 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 00:52:25 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_hmap_delitem(t_hmap *m, t_hitem *item)
 {
+	if (!item)
+		return ;
 	if (item->prev)
 		item->prev->next = item->next;
 	else

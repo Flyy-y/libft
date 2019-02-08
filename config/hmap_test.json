@@ -1,11 +1,11 @@
 {
 	"name": "hmap_test",
-	"target": "hmap_test",
+	"target": "hmap_test.out",
 	"library": false,
 	"tardir": ".",
 	"incdir": "../../includes",
 	"makedep": "../../",
-	"lib": "../../bin/libft.a",
+	"lib": "../../bin/libft_debug.a",
 	"srcdir": ".",
 	"cflags": "-Wall -Wextra -g3"
 }

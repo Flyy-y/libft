@@ -6,11 +6,32 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 00:21:59 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 01:37:34 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hashmap.h"
+
+static t_bool	regen_ff(t_hmap *m)
+{
+	int		i;
+	t_hitem	*item;
+
+	if (m->ff)
+		free(m->ff);
+	if (!(m->ff = ft_memalloc(sizeof(t_hitem) * m->length / HMAP_FF)))
+		return (FALSE);
+	i = 0;
+	item = m->items;
+	while (item)
+	{
+		if (i == 0 || i % HMAP_FF == 0)
+			m->ff[i / HMAP_FF] = item;
+		item = item->next;
+		i++;
+	}
+	return (TRUE);
+}
 
 static t_hitem	*prepare_item(t_hmap *m, char *key, void *val, size_t val_size)
 {
@@ -59,5 +80,8 @@ t_hitem			*ft_hmap_additem(t_hmap *m, char *key, void *val,
 		i->prev = NULL;
 	}
 	m->length++;
+	if (((m->length - 1) % HMAP_FF) == 0)
+		if (!regen_ff(m))
+			return (NULL);
 	return (i);
 }
