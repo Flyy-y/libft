@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 02:40:44 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/08 02:43:07 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_hitem			*ft_hmap_additem(t_hmap *m, char *key, void *val,
 		i->prev = NULL;
 	}
 	m->length++;
-	if (((m->length - 1) % HMAP_FF) == 0)
+	if (m->use_id_as_key && ((m->length - 1) % HMAP_FF) == 0)
 		if (!regen_ff(m))
 			return (NULL);
 	return (i);
