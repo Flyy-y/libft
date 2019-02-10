@@ -1,6 +1,10 @@
 {
 	"files.associations": {
 		"hashmap.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"unistd.h": "c",
+		"ft_types.h": "c",
+		"stdint.h": "c",
+		"ft_mem.h": "c"
 	}
 }
