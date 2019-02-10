@@ -7,7 +7,7 @@ install:
 
 script:
   - cd tests/hmap
-  - $HOME/util/bin/gen_makefile ../config/hmap_test.json Makefile
+  - $HOME/util/bin/gen_makefile ../../config/hmap_test.json Makefile
   - make
   - ./hmap_test.out $(( $RANDOM*3 ))
 
