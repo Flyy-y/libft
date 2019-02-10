@@ -9,7 +9,7 @@ script:
   - cd tests/hmap
   - $HOME/util/bin/gen_makefile ../../config/hmap_test.json Makefile
   - make
-  - ./hmap_test.out $(( $RANDOM*3 ))
+  - ./hmap_test.out 42424
 
 os:
   - linux
