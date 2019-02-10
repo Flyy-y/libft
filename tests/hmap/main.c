@@ -6,12 +6,11 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 23:41:17 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 02:47:33 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 04:22:02 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "hashmap.h"
 
 int	main(int argc, char **argv)
 {
@@ -25,7 +24,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		exit (1);
 	
-	count = ft_atoi(argv[1]);
+	count = ft_atol(argv[1]);
 	if (!(m = ft_hmap_init(TRUE)) || !(ch = ft_hmap_init(FALSE)))
 		return (1);
 	i = 0;
