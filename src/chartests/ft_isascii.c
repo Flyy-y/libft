@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:22:48 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 02:40:10 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 04:12:10 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 t_bool	ft_isascii(unsigned char c)
 {
-	return (c >= 0 && c <= 127);
+	return (c <= 127);
 }

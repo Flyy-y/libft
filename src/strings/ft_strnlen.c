@@ -5,19 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 15:50:03 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Created: 2019/02/10 03:48:24 by cbreisch          #+#    #+#             */
+/*   Updated: 2019/02/10 03:50:13 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_str.h"
+#include "ft_nums.h"
 
-size_t	ft_strnlen(const char *str, size_t max)
+int	ft_strnlen(const char *str, int max)
 {
-	char *start;
-
-	start = (char*)str + 1;
-	while (*str++ && (size_t)(str - start) < max)
-		;
-	return ((size_t)(str - start));
+	return (ft_min(ft_strlen(str), max));
 }

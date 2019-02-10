@@ -6,28 +6,33 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 20:01:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:34:08 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_types.h"
+#include "ft_chartests.h"
 
-char	*ft_strcapitalize(char *s)
+char *ft_strcapitalize(char *str)
 {
-	long	i;
-	t_bool	new_word;
+	int		i;
+	t_bool	upper;
 
-	i = -1;
-	new_word = TRUE;
-	while (s[++i])
+	i = 0;
+	upper = TRUE;
+	while (str[i] != 0)
 	{
-		if (ft_islower(s[i]) && new_word)
-			s[i] -= 32;
-		if (ft_isalnum(s[i]))
-			new_word = FALSE;
+		if (ft_isalnum(str[i]))
+		{
+			if (upper && ft_islower(str[i]))
+				str[i] = ft_toupper(str[i]);
+			else if (!upper && ft_isupper(ft_isupper(str[i])))
+				str[i] = ft_tolower(str[i]);
+			upper = FALSE;
+		}
 		else
-			new_word = TRUE;
+			upper = TRUE;
 		i++;
 	}
-	return (s);
+	return (str);
 }

@@ -6,11 +6,12 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:20:29 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 03:15:39 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:57:43 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_hmap.h"
+#include "ft_mem.h"
 
 void	ft_hmap_delitem(t_hmap *m, t_hitem *item)
 {

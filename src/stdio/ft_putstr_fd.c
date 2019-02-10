@@ -6,19 +6,15 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 18:09:34 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 04:05:11 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_str.h"
 
 void	ft_putstr_fd(char const *s, int fd)
 {
 	if (fd < 0)
 		return ;
-	while (s && *s)
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
+	write(fd, s, ft_strlen(s));
 }

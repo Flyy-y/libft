@@ -6,11 +6,11 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 15:54:08 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:53:04 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "stdlib.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

@@ -6,11 +6,13 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:02:09 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/01/15 16:25:04 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 04:11:51 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stdio.h"
+#include "ft_str.h"
+#include "ft_mem.h"
 
 static int	ft_new_line(char **s, char **line, int fd, int ret)
 {
@@ -27,14 +29,14 @@ static int	ft_new_line(char **s, char **line, int fd, int ret)
 		free(s[fd]);
 		s[fd] = tmp;
 		if (s[fd][0] == 0)
-			ft_strdel(&s[fd]);
+			free(s[fd]);
 	}
 	else if (s[fd][len] == 0)
 	{
 		if (ret == BUFF_SIZE)
 			return (get_next_line(fd, line));
 		*line = ft_strdup(s[fd]);
-		ft_strdel(&s[fd]);
+		free(s[fd]);
 	}
 	return (1);
 }

@@ -6,15 +6,16 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 02:18:58 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 02:55:55 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:51:20 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mem.h"
 #include <stdint.h>
 
-void* ft_memset(void* s, int c, size_t size) {
-    uintptr_t* p;
+void	*ft_memset(void *s, int c, size_t size)
+{
+    uintptr_t *p;
     uintptr_t x;
     int i;
 

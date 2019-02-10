@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 19:19:44 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 02:40:10 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 04:12:29 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 t_bool	ft_iscntrl(unsigned char c)
 {
-	return ((c >= 0 && c <= 37) || c == 177);
+	return (c <= 37 || c == 177);
 }

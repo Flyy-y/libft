@@ -6,81 +6,52 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 17:49:08 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:54:55 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_str.h"
+#include "ft_mem.h"
 
-static size_t	strsplit_count(char const *s, char c)
+static char		*ft_replace_chr(char const *s, char c_1, char c_2)
 {
-	t_bool	new_string;
-	size_t	count;
+	int	i;
 
-	new_string = TRUE;
-	count = 0;
-	while (s && *s++)
+	i = 0;
+	while (s[i])
 	{
-		if (*s && *s == c)
-			new_string = TRUE;
-		else if (*s && new_string)
-		{
-			count++;
-			new_string = FALSE;
-		}
+		if (s[i] == c_1)
+			*((char *)s + i) = c_2;
+		++i;
 	}
-	return (count);
-}
-
-static size_t	*strsplit_string_sizes(char const *s, char c, long *x)
-{
-	size_t	count;
-	size_t	*sizes;
-	long	i;
-
-	count = strsplit_count(s, c);
-	if (!(sizes = (size_t*)ft_memalloc(sizeof(size_t) * (count + 1))))
-		return ((size_t*)0);
-	i = (-1L);
-	while ((size_t)++i < count)
-	{
-		while (*s && *s == c)
-			s++;
-		while (*s && *s != c)
-		{
-			s++;
-			sizes[i]++;
-		}
-	}
-	*x = (-1L);
-	return (sizes);
+	return ((char *)s);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	size_t	*sizes;
-	char	**split;
-	long	i;
-	long	j;
+	int		i;
+	int		j;
+	int		end;
+	char	tmp[ft_strlen(s) + 1];
+	char	**arr;
 
-	sizes = strsplit_string_sizes(s, c, &i);
-	if (!(split = ft_memalloc(sizeof(char*) * (strsplit_count(s, c) + 1))))
-		return ((char**)0);
-	while (sizes && sizes[++i])
-		if (!(split[i] = ft_memalloc(sizeof(char) * (sizes[i] + 1))))
-			return ((char**)0);
-	i = (-1L);
-	while (sizes && sizes[++i])
+	i = 0;
+	j = 0;
+	end = ft_strlen(s);
+	ft_bzero(tmp, sizeof(tmp));
+	ft_strcpy(tmp, s);
+	ft_replace_chr(tmp, c, '\0');
+	arr = (char **)ft_memalloc(sizeof(*arr) * (end));
+	while (i < end && s[i] != '\0')
 	{
-		j = (-1L);
-		while (*s && *s == c)
-			s++;
-		while (*s && *s != c)
-		{
-			split[i][++j] = *s;
-			s++;
-		}
+		while (s[i] == c)
+			++i;
+		arr[j] = ft_strdup(tmp + i);
+		++j;
+		while (tmp[i] != '\0')
+			++i;
+		++i;
 	}
-	free(sizes);
-	return (split);
+	arr[j] = 0;
+	return (arr);
 }

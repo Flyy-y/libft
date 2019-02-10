@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 03:15:15 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:59:23 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_HMAP_H
 
 # include "ft_types.h"
-# include "ft_mem.h"
+# include "unistd.h"
 
 # define HMAP_FF 16UL
 

@@ -6,11 +6,13 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 03:14:46 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:59:06 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_hmap.h"
+#include "ft_mem.h"
+#include "ft_str.h"
 
 static t_bool	regen_ff(t_hmap *m)
 {
