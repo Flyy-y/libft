@@ -6,11 +6,12 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 18:24:24 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 01:38:38 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 02:51:41 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lists.h"
+#include "ft_mem.h"
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {

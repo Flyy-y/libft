@@ -6,11 +6,12 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 17:47:49 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 01:38:47 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 02:51:51 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lists.h"
+#include "ft_mem.h"
 
 t_list	*ft_lstnew(void const *c, size_t c_size)
 {
