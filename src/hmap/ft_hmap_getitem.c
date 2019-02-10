@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hashmap_getitem.c                               :+:      :+:    :+:   */
+/*   ft_hmap_getitem.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:25:02 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 02:36:36 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:15:41 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hashmap.h"
+#include "ft_hmap.h"
 
 static t_bool	compare_hkeys(t_hmap *m, t_hkey k1, t_hkey k2)
 {

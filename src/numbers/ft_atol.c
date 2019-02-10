@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 13:41:31 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 02:30:20 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:04:16 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_chartests.h"
+#include "ft_nums.h"
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	unsigned long	result;
 	t_bool			negative;
@@ -20,16 +21,14 @@ int	ft_atoi(const char *str)
 
 	i = 0;
 	result = 0;
-	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n') ||
-		(str[i] == '\v') || (str[i] == '\r') || (str[i] == '\f'))
+	negative = FALSE;
+	while (ft_isspace(str[i]))
 		++i;
 	if (str[i] == '-')
-		negative = 1;
-	else
-		negative = 0;
+		negative = TRUE;
 	if (str[i] == '-' || str[i] == '+')
 		++i;
-	while (str[i] && (str[i] >= '0') && (str[i] <= '9'))
+	while (str[i] && ft_isdigit(str[i]))
 	{
 		result *= 10;
 		result += str[i] - '0';
@@ -37,6 +36,5 @@ int	ft_atoi(const char *str)
 	}
 	if (negative == 1)
 		return (-result);
-	else
-		return (result);
+	return (result);
 }

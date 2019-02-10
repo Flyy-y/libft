@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 01:15:41 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 02:40:10 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:12:17 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ t_bool	ft_isprint(unsigned char c);
 t_bool	ft_isspace(unsigned char c);
 t_bool	ft_isupper(unsigned char c);
 t_bool	ft_isxdigit(unsigned char c);
+
+unsigned char	ft_tolower(unsigned char c);
+unsigned char	ft_toupper(unsigned char c);
 
 #endif

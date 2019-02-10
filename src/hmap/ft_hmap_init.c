@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hashmap_init.c                                  :+:      :+:    :+:   */
+/*   ft_hmap_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 01:24:41 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:15:45 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hashmap.h"
+#include "ft_hmap.h"
 
 static unsigned long	sdbm(const void *str, size_t len)
 {

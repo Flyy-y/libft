@@ -6,15 +6,15 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 17:18:20 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/01 17:25:11 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:09:41 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_sqrt_up(size_t n)
+long	ft_sqrt_up(long n)
 {
-	size_t i;
+	long i;
 
 	i = 0;
 	while (i * i < n)

@@ -6,14 +6,16 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 01:20:24 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 03:15:15 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_HMAP_H
 # define FT_HMAP_H
 
-# include "libft.h"
+# include "ft_types.h"
+# include "ft_mem.h"
+
 # define HMAP_FF 16UL
 
 typedef union	u_hkey
