@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 03:59:06 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 09:36:42 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ static t_hitem	*prepare_item(t_hmap *m, char *key, void *val, size_t val_size)
 		return (NULL);
 	else if (!i->val_size)
 		i->value = NULL;
-	i->hash = m->hash_func(i->value, i->val_size);
+	if (!m->use_id_as_key)
+		i->hash = m->hash_func(i->key.str, ft_strlen(i->key.str));
+	else
+		i->hash = 0;
 	return (i);
 }
 

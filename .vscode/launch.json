@@ -8,7 +8,7 @@
 			"name": "tests/hmap_test",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/tests/hmap/hmap_test",
+			"program": "${workspaceFolder}/tests/hmap/hmap_test.out",
 			"args": ["10"],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",

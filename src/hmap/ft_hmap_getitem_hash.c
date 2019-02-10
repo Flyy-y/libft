@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_hmap_getitem_hash.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 15:50:03 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 09:35:24 by cbreisch         ###   ########.fr       */
+/*   Created: 2019/02/10 09:21:29 by cbreisch          #+#    #+#             */
+/*   Updated: 2019/02/10 09:43:24 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_str.h"
+#include "ft_hmap.h"
 
-int	ft_strlen(const char *str)
+t_hitem	*ft_hmap_getitem_hash(t_hmap *m, unsigned long hash)
 {
-	int	i;
+	t_hitem	*curr;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	curr = m->items;
+	if (!m || !m->length)
+		return (NULL);
+	while (curr)
+		if (curr->hash == hash)
+			return (curr);
+		else
+			curr = curr->next;
+	return (NULL);
 }
