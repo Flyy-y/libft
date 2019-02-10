@@ -6,6 +6,7 @@
 		"ft_types.h": "c",
 		"stdint.h": "c",
 		"ft_mem.h": "c",
-		"ft_hmap.h": "c"
+		"ft_hmap.h": "c",
+		"ft_str.h": "c"
 	}
 }
