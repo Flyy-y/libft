@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashmap.h                                          :+:      :+:    :+:   */
+/*   ft_hmap.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:33:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/08 02:36:04 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 01:20:24 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HASHMAP_H
-# define HASHMAP_H
+#ifndef FT_HMAP_H
+# define FT_HMAP_H
 
 # include "libft.h"
 # define HMAP_FF 16UL

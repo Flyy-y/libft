@@ -6,15 +6,15 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 17:50:19 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/02 17:52:31 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 02:39:52 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lists.h"
 
-size_t	ft_lstlen(t_list *lst)
+long	ft_lstlen(t_list *lst)
 {
-	size_t i;
+	long	i;
 
 	i = 0;
 	while (lst)

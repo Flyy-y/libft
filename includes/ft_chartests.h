@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iscntrl.c                                       :+:      :+:    :+:   */
+/*   ft_chartests.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 19:19:44 by cbreisch          #+#    #+#             */
+/*   Created: 2019/02/10 01:15:41 by cbreisch          #+#    #+#             */
 /*   Updated: 2019/02/10 02:40:10 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_CHARTESTS_H
+# define FT_CHARTESTS_H
+
 #include "ft_types.h"
 
-t_bool	ft_iscntrl(unsigned char c)
-{
-	return ((c >= 0 && c <= 37) || c == 177);
-}
+t_bool	ft_isalnum(unsigned char c);
+t_bool	ft_isalpha(unsigned char c);
+t_bool	ft_isascii(unsigned char c);
+t_bool	ft_isblank(unsigned char c);
+t_bool	ft_iscntrl(unsigned char c);
+t_bool	ft_isdigit(unsigned char c);
+t_bool	ft_isgraph(unsigned char c);
+t_bool	ft_islower(unsigned char c);
+t_bool	ft_isprint(unsigned char c);
+t_bool	ft_isspace(unsigned char c);
+t_bool	ft_isupper(unsigned char c);
+t_bool	ft_isxdigit(unsigned char c);
+
+#endif

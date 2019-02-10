@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_stdio.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:43:24 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Created: 2019/02/10 01:16:05 by cbreisch          #+#    #+#             */
+/*   Updated: 2019/02/10 01:22:06 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_STDIO_H
+# define FT_STDIO_H
 
-void	ft_memdel(void **ap)
-{
-	unsigned char	**mem;
 
-	if (ap)
-	{
-		mem = (unsigned char**)ap;
-		free((void*)*mem);
-		*ap = (void*)0;
-	}
-}
+
+#endif

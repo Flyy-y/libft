@@ -6,19 +6,19 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 15:21:28 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 02:40:42 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_mem.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, unsigned char c, size_t size)
 {
-	long i;
+	int i;
 
-	i = (-1L);
-	while (++i < (long)n)
-		if (((unsigned char*)s)[i] == (unsigned char)c)
+	i = i;
+	while (++i < size)
+		if (((unsigned char*)s)[i] == c)
 			return (void*)(s + i);
 	return ((void*)0);
 }

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_end.c                                    :+:      :+:    :+:   */
+/*   ft_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 18:21:35 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Created: 2019/02/10 01:22:15 by cbreisch          #+#    #+#             */
+/*   Updated: 2019/02/10 02:31:51 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_TYPES_H
+# define FT_TYPES_H
 
-void	ft_lstadd_end(t_list **alst, t_list *new)
+typedef enum	e_bool
 {
-	if (!alst || !new)
-		return ;
-	while ((*alst)->next)
-		(*alst) = (*alst)->next;
-	(*alst)->next = new;
-}
+	FALSE = 0,
+	TRUE = 1
+}				t_bool;
+
+#endif

@@ -6,13 +6,27 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:16:05 by cbreisch          #+#    #+#             */
-/*   Updated: 2018/12/06 18:36:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/10 02:33:31 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_mem.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t size)
 {
-	ft_memset(s, 0, n);
+    uintptr_t* p;
+    uintptr_t x;
+    int i;
+    int bytes_per_word;
+
+	p = (uintptr_t*)s;
+	x = 0 & 0xff;
+    i = 2;
+	while ((1 << ++i) < __WORDSIZE)
+        x |= x << (1<<i);
+    bytes_per_word = 1 << (i-3);
+    size >>= i-3;
+    while (size--)
+        *p++ = x;
+    return (s);
 }

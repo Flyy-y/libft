@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_nums.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 16:36:18 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/01/15 16:55:19 by cbreisch         ###   ########.fr       */
+/*   Created: 2019/02/10 01:21:21 by cbreisch          #+#    #+#             */
+/*   Updated: 2019/02/10 01:21:44 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_NUMS_H
+# define FT_NUMS_H
 
-void	*ft_realloc(void *p, size_t old_size, size_t new_size)
-{
-	void	*new;
 
-	new = NULL;
-	if (new_size == 0)
-	{
-		free(p);
-		return (NULL);
-	}
-	else if (!p)
-		return (ft_memalloc(new_size));
-	else if (new_size > old_size)
-	{
-		new = ft_memalloc(new_size);
-		if (new)
-		{
-			ft_memcpy(new, p, old_size);
-			free(p);
-		}
-		return (new);
-	}
-	return (new);
-}
+
+#endif
