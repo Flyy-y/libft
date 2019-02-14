@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 01:18:17 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 03:51:38 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/14 19:28:16 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,5 @@ void	*ft_memcpy(void *dst, const void *src, size_t size);
 void	*ft_memdup(const void *str, size_t size);
 void	*ft_memmove(void *dst, const void *src, size_t size);
 void	*ft_memset(void *s, int c, size_t size);
-
-
 
 #endif

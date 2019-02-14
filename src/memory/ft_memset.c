@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 02:18:58 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 03:51:20 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/14 19:26:29 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 void	*ft_memset(void *s, int c, size_t size)
 {
-    uintptr_t *p;
-    uintptr_t x;
-    int i;
+	uintptr_t	*p;
+	uintptr_t	x;
+	long		i;
 
 	p = (uintptr_t*)s;
 	x = c & 0xff;
-    i = 2;
+	i = 2;
 	while ((1 << ++i) < __WORDSIZE)
-        x |= x << (1<<i);
-    size >>= i-3;
-    while (size--)
-        *p++ = x;
-    return (s);
+		x |= x << (1 << i);
+	size >>= i - 3;
+	while (size--)
+		*p++ = x;
+	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 09:15:29 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/14 19:24:21 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ static unsigned long	hash(const void *str, size_t len)
 	hash = 0;
 	i = 0;
 	while (i < len)
-    {
-        hash += ((unsigned char*)str)[i];
-        hash += (hash << 10);
-        hash ^= (hash >> 6);
+	{
+		hash += ((unsigned char*)str)[i];
+		hash += (hash << 10);
+		hash ^= (hash >> 6);
 		i++;
-    }
-    hash += (hash << 4);
-    hash ^= (hash >> 11);
-    hash += (hash << 15);
-    return hash;
+	}
+	hash += (hash << 4);
+	hash ^= (hash >> 11);
+	hash += (hash << 15);
+	return (hash);
 }
 
 t_hmap					*ft_hmap_init(t_bool id_as_key)

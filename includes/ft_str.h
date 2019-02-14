@@ -6,16 +6,16 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 01:22:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 03:52:09 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/14 19:30:07 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STR_H
 # define FT_STR_H
 
-#include "ft_types.h"
-#include "ft_chartests.h"
-#include "unistd.h"
+# include "ft_types.h"
+# include "ft_chartests.h"
+# include "unistd.h"
 
 t_bool	ft_str_is_alpha(const char *s);
 t_bool	ft_str_is_lowercase(const char *s);
