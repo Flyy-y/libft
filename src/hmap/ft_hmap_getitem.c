@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:25:02 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 03:57:27 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:49:52 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_hitem			*ft_hmap_getitem(t_hmap *m, t_hkey k)
 	cur_item = m->items;
 	if (!m || !m->length)
 		return (NULL);
-	if (m->use_id_as_key && k.id > HMAP_FF)
+	if (m->use_ff && m->use_id_as_key && k.id > (HMAP_FF + 1))
 	{
 		cur_item = m->ff[k.id / HMAP_FF];
 		cur_id = k.id * HMAP_FF;

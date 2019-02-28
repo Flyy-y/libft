@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 14:08:51 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 09:36:42 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:38:56 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_mem.h"
 #include "ft_str.h"
 
-static t_bool	regen_ff(t_hmap *m)
+t_bool			ft_hmap_regen_ff(t_hmap *m)
 {
 	int		i;
 	t_hitem	*item;
@@ -86,7 +86,7 @@ t_hitem			*ft_hmap_additem(t_hmap *m, char *key, void *val,
 	}
 	m->length++;
 	if (m->use_id_as_key && ((m->length - 1) % HMAP_FF) == 0)
-		if (!regen_ff(m))
+		if (!ft_hmap_regen_ff(m))
 			return (NULL);
 	return (i);
 }

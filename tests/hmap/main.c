@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 23:41:17 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/10 09:42:28 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:53:14 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,17 @@ int	main(int argc, char **argv)
 		hash = ch->items->hash;
 		i++;
 	}
-	i = count / 2;
+	i = 0;
 	while (++i < count)
 	{
 		key.id = i;
+		ft_hmap_getitem(m, key);
+		ft_hmap_getitem_hash(ch, hash);
+	}
+	while (++i < count)
+	{
+		key.id = i;
+		m->use_ff = FALSE;
 		ft_hmap_delitem(m, ft_hmap_getitem(m, key));
 		ft_hmap_delitem(ch, ft_hmap_getitem_hash(ch, hash));
 	}
