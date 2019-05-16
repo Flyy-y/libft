@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 01:22:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/02/14 19:30:07 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/05/16 13:25:53 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_bool	ft_str_is_uppercase(const char *s);
 char	*ft_strcapitalize(char *str);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strchr(const char *s, int c);
+int		*ft_strchri(const char *s, int c);
 void	ft_strclr(char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(const char *dst, const char *src);
