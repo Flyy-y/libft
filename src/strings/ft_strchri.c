@@ -6,13 +6,13 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 13:22:57 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/05/16 13:25:35 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/05/16 13:30:59 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_str.h"
 
-int	*ft_strchri(const char *s, int c)
+int	ft_strchri(const char *s, int c)
 {
 	int	i;
 
@@ -20,5 +20,5 @@ int	*ft_strchri(const char *s, int c)
 	while (s[++i])
 		if (s[i] == c)
 			return (i);
-	return (valid);
+	return (-1);
 }

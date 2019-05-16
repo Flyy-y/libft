@@ -5,7 +5,7 @@
 	"tardir": ".",
 	"incdir": "../../includes",
 	"makedep": "../../",
-	"lib": "../../bin/libft_debug.a",
-	"cflags": "-Wall -Wextra -g3",
+	"lib": "../../bin/libft.a",
+	"cflags": "-Wall -Wextra",
 	"srcdir": "."
 }
