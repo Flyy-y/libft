@@ -6,7 +6,7 @@
 /*   By: cbreisch <cbreisch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 01:22:15 by cbreisch          #+#    #+#             */
-/*   Updated: 2019/05/16 13:31:11 by cbreisch         ###   ########.fr       */
+/*   Updated: 2019/05/23 14:36:58 by cbreisch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ char	**ft_strsplit(char const *s, char c);
 char	*ft_strstr(const char *s1, const char *s2);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s);
+size_t	ft_wcharlen(unsigned int wc);
+size_t	ft_wstrlen(unsigned int *s);
 
 #endif
